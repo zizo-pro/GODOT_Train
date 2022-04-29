@@ -1,14 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Knight (Player)/Colour1/NoOutline/120x80_PNGSheets/_Idle.png" type="Texture" id=1]
-[ext_resource path="res://Tiles/tilesets/topdown.png" type="Texture" id=2]
-[ext_resource path="res://Knight.gd" type="Script" id=3]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 17.5 )
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Tiles Set/topdown.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 4, 4 )
+extents = Vector2( 20.6667, 4.16666 )
 
 [node name="World" type="Node2D"]
 __meta__ = {
@@ -16,33 +12,74 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="Knight" type="KinematicBody2D" parent="."]
-position = Vector2( 445, 245 )
-script = ExtResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="Knight"]
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 45, 43, 19, 37 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knight"]
-position = Vector2( 0, 0.5 )
-shape = SubResource( 1 )
-
-[node name="Camera2D" type="Camera2D" parent="Knight"]
-current = true
-zoom = Vector2( 0.65, 0.65 )
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 448, 80 )
 
 [node name="Ground" type="StaticBody2D" parent="."]
-position = Vector2( 445, 284 )
+position = Vector2( 448, 368 )
 scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Ground"]
 position = Vector2( 0, 1 )
+scale = Vector2( 5.33334, 1 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 8, 0, 8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2( 248, 368 )
+scale = Vector2( 3, 3 )
+
+[node name="Sprite" type="Sprite" parent="Ground2"]
+position = Vector2( 16.6667, 1 )
+scale = Vector2( 5.16667, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 8, 0, 8, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2( 16.6667, 1.16666 )
+shape = SubResource( 2 )
+
+[node name="Ground3" type="StaticBody2D" parent="."]
+position = Vector2( 504, 320 )
+scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground3"]
+position = Vector2( 16.6667, 1 )
+scale = Vector2( 5.16667, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 8, 0, 8, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+position = Vector2( 16.6667, 1.16666 )
+shape = SubResource( 2 )
+
+[node name="Ground4" type="StaticBody2D" parent="."]
+position = Vector2( 144, 320 )
+scale = Vector2( 3, 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Ground4"]
+position = Vector2( 16.6667, 1 )
+scale = Vector2( 5.16667, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 8, 0, 8, 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground4"]
+position = Vector2( 16.6667, 1.16666 )
 shape = SubResource( 2 )

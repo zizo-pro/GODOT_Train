@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Knight.gd" type="Script" id=1]
+[ext_resource path="res://PlayerSprite.tres" type="SpriteFrames" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 17.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 10.5 )
+
+[node name="Player" type="Node2D"]
+
+[node name="Knight" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="Knight"]
+frames = ExtResource( 2 )
+animation = "Falling"
+frame = 1
+playing = true
+
+[node name="Standing_collision" type="CollisionShape2D" parent="Knight"]
+shape = SubResource( 1 )
+
+[node name="Crouch_collision" type="CollisionShape2D" parent="Knight"]
+position = Vector2( 0, 6.5 )
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="Knight"]
+visible = false
+current = true
+zoom = Vector2( 0.65, 0.65 )
